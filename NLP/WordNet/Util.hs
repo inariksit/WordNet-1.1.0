@@ -30,13 +30,13 @@ snd3 (_,b,_) = b
 thr3 :: (a, b, c) -> c
 thr3 (_,_,c) = c
 
-maybeRead :: (Read a, Monad m) => String -> m a
+maybeRead :: (Read a, MonadFail m) => String -> m a
 maybeRead s = 
   case reads s of
     (a,_):_ -> return a
     _       -> fail "error parsing string"
 
-matchN :: Monad m => Int -> [a] -> m [a]
+matchN :: MonadFail m => Int -> [a] -> m [a]
 matchN n l | length l >= n = return l
            | otherwise     = fail "expecting more tokens"
 
@@ -79,7 +79,7 @@ cannonWNString s'
         nub [s, 
              replaceChar '_' '-' s,
              replaceChar '-' '_' s,
-             filter (not . (`elem` "_-")) s,
+             filter (not . (`elem` ("_-"::String))) s,
              filter (/='.') s
             ]
   where s = map toLower s'

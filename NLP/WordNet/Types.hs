@@ -78,6 +78,7 @@ module NLP.WordNet.Types
 
 import Data.List
 import Data.Maybe
+import Prelude hiding (Word)
 
 import NLP.WordNet.PrimTypes
 import NLP.WordNet.Util
