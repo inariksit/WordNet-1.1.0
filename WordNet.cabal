@@ -12,10 +12,10 @@ Maintainer:         Max Rabkin <max.rabkin@gmail.com>
 Build-Depends:      base, filepath
 Build-Type:         Simple
 Cabal-Version:      >= 1.8
-Tested-With:        GHC == 7.4.2, GHC == 7.6.3, GHC == 7.7.20130824
+Tested-With:        GHC == 8.8.4
 
 Library
-    Build-depends: base == 4.*, containers, filepath, array
+    Build-depends: base >= 4.8, containers, filepath, array
     Exposed-Modules:
         NLP.WordNet
 
